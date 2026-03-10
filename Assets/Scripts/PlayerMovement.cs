@@ -6,23 +6,88 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    [Header("Movement")]
     public float moveSpeed = 5f;
 
     float horizontalMovement;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        jumpsRemaining = maxJumps;
     }
 
-    // Update is called once per frame
+    [Header("Jumping")]
+    public float jumpPower = 10f;
+    public int maxJumps = 2;
+    int jumpsRemaining;
+    bool wasGrounded;
+
+    [Header("Ground Check")]
+    public Transform groundCheckPos;
+    public Vector2 groundCheckSize = new Vector2(0.5f, 0.05f);
+    public LayerMask groundLayer;
+
+    [Header("Gravity")]
+    public float baseGravity = 2f;
+    public float maxFallSpeed = -18f;
+    public float fallMultiplier = 2f;
+
     void Update()
     {
         rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+        GroundCheck();
+        Gravity();
+    }
+
+    public void Gravity()
+    {
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.gravityScale = baseGravity * fallMultiplier;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, maxFallSpeed));
+        }
+        else
+        {
+            rb.gravityScale = baseGravity;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (jumpsRemaining > 0)
+        {
+        if (context.performed)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+            jumpsRemaining--;
+        }
+
+        else if (context.canceled)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+        }
+        }
+    }
+
+    private void GroundCheck()
+    {
+        bool isGrounded = Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0f, groundLayer);
+        
+        if (isGrounded && !wasGrounded)
+        {
+            jumpsRemaining = maxJumps;
+        }
+        
+        wasGrounded = isGrounded;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
     }
 }
