@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -8,12 +10,14 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthUI healthUI;
     private SpriteRenderer spriteRenderer;
+
+    public static event Action OnPlayerDied;
     void Start()
     {
-        currentHealth = maxHealth;
-        healthUI.SetMaxHearts(maxHealth);
+        ResetHealth();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        GameController.OnReset += ResetHealth;
     }
 
 
@@ -26,6 +30,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        healthUI.SetMaxHearts(maxHealth);
+        healthUI.UpdateHearts(currentHealth);
+    }
+
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -35,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-        
+            OnPlayerDied?.Invoke();
         }
     }
 
