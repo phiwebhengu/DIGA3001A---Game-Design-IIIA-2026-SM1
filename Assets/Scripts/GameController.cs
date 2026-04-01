@@ -1,5 +1,5 @@
 using System;
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     int progressAmount;
     public Slider progressSlider;
 
+    public static int CurrentProgress { get; private set; }
 
     public GameObject player;
     public GameObject LoadCanvas;
@@ -22,10 +23,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         progressAmount = 0;
+        CurrentProgress = 0;
         progressSlider.value = 0;
+
         Crystal.OnCrystalCollect += IncreaseProgressAmount;
         HoldToLoadLevel.OnHoldComplete += LoadNextLevel;
         PlayerHealth.OnPlayerDied += GameOverScreen;
+
         LoadCanvas.SetActive(false);
         gameOverScreen.SetActive(false);
     }
@@ -33,7 +37,7 @@ public class GameController : MonoBehaviour
     void GameOverScreen()
     {
         gameOverScreen.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
+        Time.timeScale = 0f;
     }
 
     public void ResetGame()
@@ -41,20 +45,19 @@ public class GameController : MonoBehaviour
         gameOverScreen.SetActive(false);
         LoadLevel(0);
         OnReset?.Invoke();
-        Time.timeScale = 1f; // Resume the game
-       
+        Time.timeScale = 1f;
     }
 
     void IncreaseProgressAmount(int amount)
     {
         progressAmount += amount;
+        CurrentProgress = progressAmount;
+
         progressSlider.value = progressAmount;
-        Debug.Log("Progress: " + progressAmount);
 
         if (progressAmount >= 200)
         {
             LoadCanvas.SetActive(true);
-            Debug.Log("Level Complete!");
         }
     }
 
@@ -62,16 +65,17 @@ public class GameController : MonoBehaviour
     {
         LoadCanvas.SetActive(false);
 
-        levels[currentLevelIndex].gameObject.SetActive(false);
-        levels[level].gameObject.SetActive(true);
+        levels[currentLevelIndex].SetActive(false);
+        levels[level].SetActive(true);
 
-        player.transform.position = new Vector3(0, 0, 0);
+        player.transform.position = Vector3.zero;
 
         currentLevelIndex = level;
+
         progressAmount = 0;
+        CurrentProgress = 0;
         progressSlider.value = 0;
     }
-
 
     void LoadNextLevel()
     {
