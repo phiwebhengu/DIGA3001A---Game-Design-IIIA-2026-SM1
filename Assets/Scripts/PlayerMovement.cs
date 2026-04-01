@@ -23,9 +23,19 @@ public class PlayerMovement : MonoBehaviour
         public float moveSpeed = 5f;
         private float horizontalMovement;
         private bool isFacingRight = true;
+
+        [Header("Dashing")]
+        public float dashSpeed = 20f;
+        public float dashDuration = 0.1f;
+        public float dashCooldown = 0.1f;
+        bool isDashing;
+        bool canDash = true;
+        TrailRenderer trailRenderer;
+
     void Start()
     {
         jumpsRemaining = maxJumps;
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     [Header("Jumping")]
@@ -62,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(isDashing)
+        {
+            return;
+        }
         GroundCheck();
         ProcessGravity();
         ProcessWallSlide();
@@ -95,6 +109,36 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if(context.performed && canDash)
+        {
+            StartCoroutine(DashCoroutine());
+        }
+    }
+
+    private IEnumerator DashCoroutine()
+    {
+        canDash = false;
+        isDashing = true;
+        trailRenderer.emitting = true;
+
+        float dashDirection = isFacingRight ? 1 : -1;
+
+        rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+
+        isDashing = false;
+        trailRenderer.emitting = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true
+;
     }
 
     /// <summary>
