@@ -10415,7 +10415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   progressSlider: {fileID: 1294299857}
-  levelCompleteRequirement: 200
+  levelCompleteRequirement: 175
   levelTime: 60
   timerText: {fileID: 314485037}
   player: {fileID: 1926539516}
