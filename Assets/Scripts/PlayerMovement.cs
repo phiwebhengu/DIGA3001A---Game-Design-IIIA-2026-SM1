@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,23 +16,23 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed = 20f;
     public float dashDuration = 0.1f;
     public float dashCooldown = 0.1f;
-    public int dashUnlockRequirement = 50; // NEW
+    public int dashUnlockRequirement = 50;
 
-    bool isDashing;
-    bool canDash = true;
-    TrailRenderer trailRenderer;
+    private bool isDashing;
+    private bool canDash = true;
+    private TrailRenderer trailRenderer;
 
     [Header("Jumping")]
     public float jumpPower = 10f;
     public int maxJumps = 2;
-    int jumpsRemaining;
-    bool wasGrounded;
+    private int jumpsRemaining;
+    private bool wasGrounded;
 
     [Header("Ground Check")]
     public Transform groundCheckPos;
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.05f);
     public LayerMask groundLayer;
-    bool isGrounded;
+    private bool isGrounded;
 
     [Header("Gravity")]
     public float baseGravity = 2f;
@@ -47,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Wall Movement")]
     public float wallSlideSpeed = 2f;
-    bool isWallSliding;
-    bool isWallJumping;
-    float wallJumpDirection;
-    float wallJumpTime = 0.5f;
-    float wallJumpTimer;
+    private bool isWallSliding;
+    private bool isWallJumping;
+    private float wallJumpDirection;
+    private float wallJumpTime = 0.5f;
+    private float wallJumpTimer;
     public Vector2 wallJumpPower = new Vector2(5f, 10f);
 
     void Start()
@@ -62,7 +61,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isDashing) return;
+        if (isDashing)
+        {
+            return;
+        }
 
         GroundCheck();
         ProcessGravity();
@@ -98,18 +100,26 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        trailRenderer.emitting = true;
 
-        float dashDirection = isFacingRight ? 1 : -1;
+        if (trailRenderer != null)
+        {
+            trailRenderer.emitting = true;
+        }
+
+        float dashDirection = isFacingRight ? 1f : -1f;
 
         rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y);
 
         yield return new WaitForSeconds(dashDuration);
 
-        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
         isDashing = false;
-        trailRenderer.emitting = false;
+
+        if (trailRenderer != null)
+        {
+            trailRenderer.emitting = false;
+        }
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
@@ -199,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
             isWallJumping = false;
             wallJumpDirection = -transform.localScale.x;
             wallJumpTimer = wallJumpTime;
+
             CancelInvoke(nameof(CancelWallJump));
         }
         else if (wallJumpTimer > 0f)
@@ -225,9 +236,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
+        if (groundCheckPos != null)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
+        }
+
+        if (wallCheckPos != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
+        }
     }
 }

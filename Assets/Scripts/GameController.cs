@@ -1,21 +1,29 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    int progressAmount;
+    [Header("Progress")]
     public Slider progressSlider;
+    public int levelCompleteRequirement = 200;
 
+    private int progressAmount;
     public static int CurrentProgress { get; private set; }
 
+    [Header("Timer")]
+    public float levelTime = 60f;
+    private float timeRemaining;
+    private bool timerRunning = true;
+    public TMP_Text timerText;
+
+    [Header("Scene References")]
     public GameObject player;
     public GameObject LoadCanvas;
     public List<GameObject> levels;
     private int currentLevelIndex = 0;
-
     public GameObject gameOverScreen;
 
     public static event Action OnReset;
@@ -24,27 +32,79 @@ public class GameController : MonoBehaviour
     {
         progressAmount = 0;
         CurrentProgress = 0;
-        progressSlider.value = 0;
+
+        if (progressSlider != null)
+            progressSlider.value = 0;
+
+        timeRemaining = levelTime;
+        timerRunning = true;
+        UpdateTimerUI();
 
         Crystal.OnCrystalCollect += IncreaseProgressAmount;
         HoldToLoadLevel.OnHoldComplete += LoadNextLevel;
-        PlayerHealth.OnPlayerDied += GameOverScreen;
 
-        LoadCanvas.SetActive(false);
-        gameOverScreen.SetActive(false);
+        if (LoadCanvas != null)
+            LoadCanvas.SetActive(false);
+
+        if (gameOverScreen != null)
+            gameOverScreen.SetActive(false);
+    }
+
+    void Update()
+    {
+        HandleTimer();
+    }
+
+    void OnDestroy()
+    {
+        Crystal.OnCrystalCollect -= IncreaseProgressAmount;
+        HoldToLoadLevel.OnHoldComplete -= LoadNextLevel;
+    }
+
+    void HandleTimer()
+    {
+        if (!timerRunning)
+            return;
+
+        timeRemaining -= Time.deltaTime;
+
+        if (timeRemaining <= 0f)
+        {
+            timeRemaining = 0f;
+            UpdateTimerUI();
+            GameOverScreen();
+            return;
+        }
+
+        UpdateTimerUI();
+    }
+
+    void UpdateTimerUI()
+    {
+        if (timerText == null)
+            return;
+
+        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+        timerText.text = $"{minutes:00}:{seconds:00}";
     }
 
     void GameOverScreen()
     {
-        gameOverScreen.SetActive(true);
+        timerRunning = false;
+
+        if (gameOverScreen != null)
+            gameOverScreen.SetActive(true);
+
         Time.timeScale = 0f;
     }
 
     public void ResetGame()
     {
-        gameOverScreen.SetActive(false);
-        LoadLevel(0);
-        OnReset?.Invoke();
+        if (gameOverScreen != null)
+            gameOverScreen.SetActive(false);
+
+        LoadLevel(currentLevelIndex);
         Time.timeScale = 1f;
     }
 
@@ -53,28 +113,48 @@ public class GameController : MonoBehaviour
         progressAmount += amount;
         CurrentProgress = progressAmount;
 
-        progressSlider.value = progressAmount;
+        if (progressSlider != null)
+            progressSlider.value = progressAmount;
 
-        if (progressAmount >= 200)
+        Debug.Log("Progress: " + progressAmount);
+
+        if (progressAmount >= levelCompleteRequirement)
         {
-            LoadCanvas.SetActive(true);
+            if (LoadCanvas != null)
+                LoadCanvas.SetActive(true);
+
+            timerRunning = false;
+            Debug.Log("Level Complete!");
         }
     }
 
     void LoadLevel(int level)
     {
-        LoadCanvas.SetActive(false);
+        if (LoadCanvas != null)
+            LoadCanvas.SetActive(false);
 
-        levels[currentLevelIndex].SetActive(false);
-        levels[level].SetActive(true);
-
-        player.transform.position = Vector3.zero;
+        if (levels.Count > 0)
+        {
+            levels[currentLevelIndex].SetActive(false);
+            levels[level].SetActive(true);
+        }
 
         currentLevelIndex = level;
 
+        if (player != null)
+            player.transform.position = Vector3.zero;
+
         progressAmount = 0;
         CurrentProgress = 0;
-        progressSlider.value = 0;
+
+        if (progressSlider != null)
+            progressSlider.value = 0;
+
+        timeRemaining = levelTime;
+        timerRunning = true;
+        UpdateTimerUI();
+
+        OnReset?.Invoke();
     }
 
     void LoadNextLevel()
