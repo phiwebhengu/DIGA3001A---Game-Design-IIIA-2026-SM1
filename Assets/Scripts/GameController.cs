@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     [Header("Progress")]
     public Slider progressSlider;
+    public TMP_Text progressText;
     public int levelCompleteRequirement = 200;
 
     private int progressAmount;
@@ -41,6 +42,8 @@ public class GameController : MonoBehaviour
 
         if (progressSlider != null)
             progressSlider.value = 0;
+
+        UpdateProgressUI();
 
         timeRemaining = levelTime;
         timerRunning = true;
@@ -105,6 +108,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    void UpdateProgressUI()
+    {
+        if (progressText != null)
+        {
+            progressText.text = $"{progressAmount} / {levelCompleteRequirement}";
+        }
+    }
+
     void GameOverScreen()
     {
         timerRunning = false;
@@ -131,6 +142,8 @@ public class GameController : MonoBehaviour
 
         if (progressSlider != null)
             progressSlider.value = progressAmount;
+
+        UpdateProgressUI();
 
         Debug.Log("Progress: " + progressAmount);
 
@@ -165,6 +178,8 @@ public class GameController : MonoBehaviour
 
         if (progressSlider != null)
             progressSlider.value = 0;
+
+        UpdateProgressUI();
 
         timeRemaining = levelTime;
         timerRunning = true;

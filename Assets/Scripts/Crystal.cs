@@ -8,12 +8,12 @@ public class Crystal : MonoBehaviour, IItem
 
     private bool collected = false;
 
-    void OnEnable()
+    void Awake()
     {
         GameController.OnReset += ResetCrystal;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         GameController.OnReset -= ResetCrystal;
     }
