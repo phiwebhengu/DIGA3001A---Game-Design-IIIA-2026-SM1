@@ -19,6 +19,12 @@ public class GameController : MonoBehaviour
     private bool timerRunning = true;
     public TMP_Text timerText;
 
+    [Header("Timer Warning")]
+    public float warningThreshold = 10f;
+    public Color normalTimerColor = Color.white;
+    public Color warningTimerColor = Color.red;
+    public float flashSpeed = 8f;
+
     [Header("Scene References")]
     public GameObject player;
     public GameObject LoadCanvas;
@@ -87,6 +93,16 @@ public class GameController : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeRemaining / 60f);
         int seconds = Mathf.FloorToInt(timeRemaining % 60f);
         timerText.text = $"{minutes:00}:{seconds:00}";
+
+        if (timeRemaining <= warningThreshold)
+        {
+            float pulse = Mathf.Abs(Mathf.Sin(Time.unscaledTime * flashSpeed));
+            timerText.color = Color.Lerp(normalTimerColor, warningTimerColor, pulse);
+        }
+        else
+        {
+            timerText.color = normalTimerColor;
+        }
     }
 
     void GameOverScreen()
