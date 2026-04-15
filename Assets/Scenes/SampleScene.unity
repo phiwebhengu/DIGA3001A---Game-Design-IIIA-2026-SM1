@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (10)
@@ -465,6 +469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (14)
@@ -1030,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (2)
@@ -1087,6 +1099,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (6)
@@ -1148,6 +1164,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8150855114793992737, guid: 1d53ebaa440e9bf47a6c4aeba23fb24c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1742,6 +1762,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (12)
@@ -2322,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (7)
@@ -3137,6 +3165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal
@@ -3360,6 +3392,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (14)
@@ -4135,6 +4171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (9)
@@ -4228,6 +4268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (1)
@@ -4456,6 +4500,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (6)
@@ -5601,6 +5649,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (3)
@@ -5824,6 +5876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (10)
@@ -6059,6 +6115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (9)
@@ -6479,6 +6539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (1)
@@ -6797,6 +6861,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (13)
@@ -7187,6 +7255,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal
@@ -7249,6 +7321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (4)
@@ -7804,6 +7880,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (2)
@@ -7866,6 +7946,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (5)
@@ -8222,6 +8306,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (11)
@@ -8289,6 +8377,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (4)
@@ -8556,6 +8648,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8150855114793992737, guid: 1d53ebaa440e9bf47a6c4aeba23fb24c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8858,6 +8954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (13)
@@ -8919,6 +9019,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8150855114793992737, guid: 1d53ebaa440e9bf47a6c4aeba23fb24c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9636,6 +9740,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (3)
@@ -9698,6 +9806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (11)
@@ -9921,6 +10033,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (5)
@@ -9978,6 +10094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (7)
@@ -10035,6 +10155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (8)
@@ -10247,6 +10371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (12)
@@ -10313,6 +10441,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8150855114793992737, guid: 1d53ebaa440e9bf47a6c4aeba23fb24c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10371,6 +10503,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal
@@ -10487,6 +10623,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
       value: Small Crystal (8)
@@ -10843,6 +10983,22 @@ PrefabInstance:
     - target: {fileID: 824083137445459759, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7041500812674401902, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9768849
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978019142844172826, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9924528
       objectReference: {fileID: 0}
     - target: {fileID: 6158196257412260901, guid: f00863e7b45bb534cab6723af3194d5b, type: 3}
       propertyPath: m_Name
