@@ -10998,16 +10998,20 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8885016058049631495, guid: 9c4ab06a4102f534e850ab8a694eae52, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -226613065, guid: a9e88ead74e98ed469342f2b107ce03f, type: 3}
+    - target: {fileID: 8885016058049631495, guid: 9c4ab06a4102f534e850ab8a694eae52, type: 3}
       propertyPath: m_Color.b
-      value: 0.050037105
+      value: 0.8784026
       objectReference: {fileID: 0}
     - target: {fileID: 8885016058049631495, guid: 9c4ab06a4102f534e850ab8a694eae52, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.97735846
       objectReference: {fileID: 0}
     - target: {fileID: 8885016058049631495, guid: 9c4ab06a4102f534e850ab8a694eae52, type: 3}
       propertyPath: m_Color.r
-      value: 0.027450979
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
