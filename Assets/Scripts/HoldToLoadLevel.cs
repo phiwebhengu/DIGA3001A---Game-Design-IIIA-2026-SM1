@@ -1,26 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 using System;
 
 public class HoldToLoadLevel : MonoBehaviour
 {
-    public float holdDuration = 1f; // Time required to hold before loading the level
-    public Image fillcircle; // UI element to show hold progress
+    [Header("Hold Settings")]
+    public float holdDuration = 1f;
+    public Image fillcircle;
+
+    [Header("Prompt UI")]
+    public TMP_Text holdPromptText;
+    public string promptMessage = "Hold E to move to next level";
 
     private float holdTimer = 0f;
     private bool isHolding = false;
 
     public static event Action OnHoldComplete;
 
+    void Start()
+    {
+        ResetHold();
+
+        if (holdPromptText != null)
+            holdPromptText.text = promptMessage;
+    }
+
     void Update()
     {
         if (isHolding)
         {
             holdTimer += Time.deltaTime;
-            fillcircle.fillAmount = holdTimer / holdDuration;
+
+            if (fillcircle != null)
+                fillcircle.fillAmount = holdTimer / holdDuration;
 
             if (holdTimer >= holdDuration)
             {
@@ -46,6 +60,8 @@ public class HoldToLoadLevel : MonoBehaviour
     {
         isHolding = false;
         holdTimer = 0f;
-        fillcircle.fillAmount = 0f;
+
+        if (fillcircle != null)
+            fillcircle.fillAmount = 0f;
     }
 }
