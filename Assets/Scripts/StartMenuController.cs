@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuController : MonoBehaviour
 {
+    void Start()
+    {
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMusic("MainMenu");
+        }
+    }
+
     public void OnStartClick()
     {
         SceneManager.LoadScene("SampleScene");
@@ -12,9 +20,9 @@ public class StartMenuController : MonoBehaviour
 
     public void OnExitClick()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
         Application.Quit();
     }
 }

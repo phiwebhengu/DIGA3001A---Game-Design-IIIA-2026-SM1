@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     private bool timerRunning = true;
     public TMP_Text timerText;
 
-    // NEW: tracks last whole second value
+    // Tracks last whole second value
     private int lastCountdownSecond = -1;
 
     [Header("Timer Warning")]
@@ -42,6 +42,12 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        // Start game music
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMusic("Game");
+        }
+
         progressAmount = 0;
         CurrentProgress = 0;
 
@@ -97,15 +103,12 @@ public class GameController : MonoBehaviour
         UpdateTimerUI();
     }
 
-    // NEW LOGIC (core fix)
     void UpdateCountdownSound()
     {
         int currentSecond = Mathf.CeilToInt(timeRemaining);
 
-        // Only trigger when inside last 10 seconds
         if (currentSecond <= 10 && currentSecond >= 1)
         {
-            // play ONLY when second changes
             if (currentSecond != lastCountdownSecond)
             {
                 lastCountdownSecond = currentSecond;
@@ -181,7 +184,9 @@ public class GameController : MonoBehaviour
             progressCompleteSoundPlayed = true;
 
             if (SoundManager.Instance != null && player != null)
+            {
                 SoundManager.Instance.PlaySound3D("ProgressFull", player.transform.position);
+            }
         }
 
         if (progressAmount >= levelCompleteRequirement)
