@@ -42,7 +42,7 @@ public class MenuController : MonoBehaviour
         PauseMenuCanvas.SetActive(false);
         PauseController.SetPause(false);
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void ExitGameButton()
