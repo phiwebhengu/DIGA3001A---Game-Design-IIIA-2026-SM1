@@ -61,10 +61,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isDashing)
+        if (PauseController.IsGamePaused)
         {
+            rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 0f;
             return;
         }
+
+        rb.gravityScale = baseGravity;
+
+        if (isDashing) return;
 
         GroundCheck();
         ProcessGravity();
@@ -85,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext context)
     {
+        if (PauseController.IsGamePaused) return;
+
         if (context.performed && canDash && CanDash())
         {
             StartCoroutine(DashCoroutine());
@@ -102,31 +110,28 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
 
         if (trailRenderer != null)
-        {
             trailRenderer.emitting = true;
-        }
 
         float dashDirection = isFacingRight ? 1f : -1f;
-
         rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y);
 
         yield return new WaitForSeconds(dashDuration);
 
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-
+        rb.linearVelocity = Vector2.zero;
         isDashing = false;
 
         if (trailRenderer != null)
-        {
             trailRenderer.emitting = false;
-        }
 
         yield return new WaitForSeconds(dashCooldown);
+
         canDash = true;
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (PauseController.IsGamePaused) return;
+
         if (jumpsRemaining > 0)
         {
             if (context.performed)
@@ -146,14 +151,6 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
             wallJumpTimer = 0f;
 
-            if (transform.localScale.x != wallJumpDirection)
-            {
-                isFacingRight = !isFacingRight;
-                Vector3 localScale = transform.localScale;
-                localScale.x *= -1;
-                transform.localScale = localScale;
-            }
-
             Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f);
         }
     }
@@ -163,9 +160,7 @@ public class PlayerMovement : MonoBehaviour
         bool groundedNow = Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0f, groundLayer);
 
         if (groundedNow && !wasGrounded)
-        {
             jumpsRemaining = maxJumps;
-        }
 
         isGrounded = groundedNow;
         wasGrounded = groundedNow;
@@ -209,7 +204,6 @@ public class PlayerMovement : MonoBehaviour
             isWallJumping = false;
             wallJumpDirection = -transform.localScale.x;
             wallJumpTimer = wallJumpTime;
-
             CancelInvoke(nameof(CancelWallJump));
         }
         else if (wallJumpTimer > 0f)
@@ -228,24 +222,9 @@ public class PlayerMovement : MonoBehaviour
         if ((isFacingRight && horizontalMovement < 0) || (!isFacingRight && horizontalMovement > 0))
         {
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheckPos != null)
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
-        }
-
-        if (wallCheckPos != null)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
     }
 }

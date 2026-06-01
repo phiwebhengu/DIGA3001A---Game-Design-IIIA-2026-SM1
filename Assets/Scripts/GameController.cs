@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
 
     void HandleTimer()
     {
-        if (!timerRunning)
+        if (!timerRunning || PauseController.IsGamePaused)
             return;
 
         timeRemaining -= Time.deltaTime;
@@ -124,6 +124,7 @@ public class GameController : MonoBehaviour
             gameOverScreen.SetActive(true);
 
         Time.timeScale = 0f;
+        PauseController.SetPause(true);
     }
 
     public void ResetGame()
@@ -131,8 +132,10 @@ public class GameController : MonoBehaviour
         if (gameOverScreen != null)
             gameOverScreen.SetActive(false);
 
-        LoadLevel(currentLevelIndex);
         Time.timeScale = 1f;
+        PauseController.SetPause(false);
+
+        LoadLevel(currentLevelIndex);
     }
 
     void IncreaseProgressAmount(int amount)
@@ -145,15 +148,12 @@ public class GameController : MonoBehaviour
 
         UpdateProgressUI();
 
-        Debug.Log("Progress: " + progressAmount);
-
         if (progressAmount >= levelCompleteRequirement)
         {
             if (LoadCanvas != null)
                 LoadCanvas.SetActive(true);
 
             timerRunning = false;
-            Debug.Log("Level Complete!");
         }
     }
 
@@ -162,7 +162,7 @@ public class GameController : MonoBehaviour
         if (LoadCanvas != null)
             LoadCanvas.SetActive(false);
 
-        if (levels.Count > 0)
+        if (levels != null && levels.Count > 0)
         {
             levels[currentLevelIndex].SetActive(false);
             levels[level].SetActive(true);
@@ -183,6 +183,7 @@ public class GameController : MonoBehaviour
 
         timeRemaining = levelTime;
         timerRunning = true;
+
         UpdateTimerUI();
 
         OnReset?.Invoke();
@@ -190,7 +191,11 @@ public class GameController : MonoBehaviour
 
     void LoadNextLevel()
     {
-        int nextLevelIndex = (currentLevelIndex == levels.Count - 1) ? 0 : currentLevelIndex + 1;
+        int nextLevelIndex =
+            (currentLevelIndex == levels.Count - 1)
+            ? 0
+            : currentLevelIndex + 1;
+
         LoadLevel(nextLevelIndex);
     }
 }
