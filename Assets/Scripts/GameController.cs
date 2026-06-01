@@ -14,11 +14,16 @@ public class GameController : MonoBehaviour
     private int progressAmount;
     public static int CurrentProgress { get; private set; }
 
+    private bool progressCompleteSoundPlayed = false;
+
     [Header("Timer")]
     public float levelTime = 60f;
     private float timeRemaining;
     private bool timerRunning = true;
     public TMP_Text timerText;
+
+    // NEW: tracks last whole second value
+    private int lastCountdownSecond = -1;
 
     [Header("Timer Warning")]
     public float warningThreshold = 10f;
@@ -39,6 +44,9 @@ public class GameController : MonoBehaviour
     {
         progressAmount = 0;
         CurrentProgress = 0;
+
+        progressCompleteSoundPlayed = false;
+        lastCountdownSecond = -1;
 
         if (progressSlider != null)
             progressSlider.value = 0;
@@ -85,7 +93,29 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        UpdateCountdownSound();
         UpdateTimerUI();
+    }
+
+    // NEW LOGIC (core fix)
+    void UpdateCountdownSound()
+    {
+        int currentSecond = Mathf.CeilToInt(timeRemaining);
+
+        // Only trigger when inside last 10 seconds
+        if (currentSecond <= 10 && currentSecond >= 1)
+        {
+            // play ONLY when second changes
+            if (currentSecond != lastCountdownSecond)
+            {
+                lastCountdownSecond = currentSecond;
+
+                if (SoundManager.Instance != null && player != null)
+                {
+                    SoundManager.Instance.PlaySound3D("CountDown", player.transform.position);
+                }
+            }
+        }
     }
 
     void UpdateTimerUI()
@@ -111,9 +141,7 @@ public class GameController : MonoBehaviour
     void UpdateProgressUI()
     {
         if (progressText != null)
-        {
             progressText.text = $"{progressAmount} / {levelCompleteRequirement}";
-        }
     }
 
     void GameOverScreen()
@@ -148,6 +176,14 @@ public class GameController : MonoBehaviour
 
         UpdateProgressUI();
 
+        if (progressAmount >= levelCompleteRequirement && !progressCompleteSoundPlayed)
+        {
+            progressCompleteSoundPlayed = true;
+
+            if (SoundManager.Instance != null && player != null)
+                SoundManager.Instance.PlaySound3D("ProgressFull", player.transform.position);
+        }
+
         if (progressAmount >= levelCompleteRequirement)
         {
             if (LoadCanvas != null)
@@ -175,6 +211,9 @@ public class GameController : MonoBehaviour
 
         progressAmount = 0;
         CurrentProgress = 0;
+
+        progressCompleteSoundPlayed = false;
+        lastCountdownSecond = -1;
 
         if (progressSlider != null)
             progressSlider.value = 0;

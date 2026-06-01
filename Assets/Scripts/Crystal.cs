@@ -25,6 +25,7 @@ public class Crystal : MonoBehaviour, IItem
 
         collected = true;
         OnCrystalCollect?.Invoke(value);
+        SoundManager.Instance.PlaySound3D("Pickup", transform.position);
         gameObject.SetActive(false);
     }
 

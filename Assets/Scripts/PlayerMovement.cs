@@ -70,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.gravityScale = baseGravity;
 
-        if (isDashing) return;
+        if (isDashing)
+            return;
 
         GroundCheck();
         ProcessGravity();
@@ -91,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext context)
     {
-        if (PauseController.IsGamePaused) return;
+        if (PauseController.IsGamePaused)
+            return;
 
         if (context.performed && canDash && CanDash())
         {
@@ -108,6 +110,9 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound3D("Dash", transform.position);
 
         if (trailRenderer != null)
             trailRenderer.emitting = true;
@@ -130,7 +135,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (PauseController.IsGamePaused) return;
+        if (PauseController.IsGamePaused)
+            return;
 
         if (jumpsRemaining > 0)
         {
@@ -138,6 +144,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
                 jumpsRemaining--;
+
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlaySound3D("Jump", transform.position);
             }
             else if (context.canceled)
             {
